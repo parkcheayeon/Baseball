@@ -1,13 +1,10 @@
-
-const form = document.querySelector(".js-form"),
-    input = form.querySelector("input"),
-    inputNum = document.querySelector(".js-inputNum"),
-    randomNum = document.querySelector(".js-randomNum"),
-    point = document.querySelector(".js-point");
-
+const form = document.querySelector(".js-form");
+const input = form.querySelector("input");
+const inputNum = document.querySelector(".js-inputNum");
+const randomNum = document.querySelector(".js-randomNum");
+const point = document.querySelector(".js-point");
 
 let count = 0;
-
 
 function compareNum(input, random) {
     let strike = 0;
@@ -21,14 +18,13 @@ function compareNum(input, random) {
         }
     }
     if (strike === 3) {
-        alert('축하합니다!🎉')
+        alert('축하합니다!🎉');
     }
     if (ball === 0) {
-        alert('숫자가 하나도 안맞네요 🤢')
+        alert('숫자가 하나도 안맞네요 🤢');
     }
     point.innerText = `${strike} Strike ${ball} Ball`;
 }
-
 
 function genRandom() {
     let number = "";
@@ -39,24 +35,21 @@ function genRandom() {
     return number;
 }
 
-
 function paintNumber(text) {
     inputNum.innerText = `Your number is ${text}`;
 }
-
 
 function isNumber(text) {
     let regExp = /^[0-9]{3}$/;
     return regExp.test(text);
 }
 
-
 function handleSubmit(event) {
     event.preventDefault();
     const currentValue = input.value;
     input.value = "";
     if (!isNumber(currentValue)) {
-        alert("세자리숫자를 입력해주세요!")
+        alert("세자리숫자를 입력해주세요!");
     } else {
         paintNumber(currentValue);
         const randomValue = genRandom();
@@ -70,9 +63,8 @@ function handleSubmit(event) {
     }
 }
 
-
 function init() {
-    alert('3 Strike 도전! 숫자를 입력해주세요!')
+    alert('3 Strike 도전! 숫자를 입력해주세요!');
     form.addEventListener("submit", handleSubmit);
 }
 init();
