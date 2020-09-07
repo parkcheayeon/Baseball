@@ -3,8 +3,11 @@ const input = form.querySelector("input");
 const inputNum = document.querySelector(".js-inputNum");
 const randomNum = document.querySelector(".js-randomNum");
 const point = document.querySelector(".js-point");
+const over = document.querySelector(".js-over");
 
 let count = 0;
+
+const HIDING_CN = "hiding";
 
 function compareNum(input, random) {
     let strike = 0;
@@ -18,10 +21,10 @@ function compareNum(input, random) {
         }
     }
     if (strike === 3) {
-        alert('축하합니다!🎉');
+        alert("축하합니다!🎉");
     }
     if (ball === 0) {
-        alert('숫자가 하나도 안맞네요 🤢');
+        alert("숫자가 하나도 안맞네요 🤢");
     }
     point.innerText = `${strike} Strike ${ball} Ball`;
 }
@@ -57,14 +60,18 @@ function handleSubmit(event) {
         compareNum(currentValue, randomValue);
         count += 1;
         if (count === 10) {
-            alert('실패입니다😅');
-            window.location.reload();
+            alert("실패입니다😅");
+            form.classList.add(HIDING_CN);
+            inputNum.classList.add(HIDING_CN);
+            randomNum.classList.add(HIDING_CN);
+            point.classList.add(HIDING_CN);
+            over.innerText = "GAME OVER"
         }
     }
 }
 
 function init() {
-    alert('3 Strike 도전! 숫자를 입력해주세요!');
+    alert("3 Strike 도전! 숫자를 입력해주세요!");
     form.addEventListener("submit", handleSubmit);
 }
 init();

@@ -1,4 +1,3 @@
-
 body {
     background-color: #1dd1a1;
     color: white;
@@ -13,4 +12,8 @@ input {
 
 input:focus {
     outline: none;
+}
+
+.hiding {
+    display: none;
 }
