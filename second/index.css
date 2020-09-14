@@ -1,0 +1,21 @@
+body {
+    background-color: #7bed9f;
+    color: white;
+    text-align: center;
+}
+
+input {
+    border: none;
+    border-radius: 20px;
+    margin: 15px;
+    padding: 15px;
+    text-align: center;
+}
+
+input:focus {
+    outline: none;
+}
+
+.hiding {
+    display: none;
+}
